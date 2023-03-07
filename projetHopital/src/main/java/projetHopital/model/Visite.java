@@ -1,6 +1,7 @@
 package projetHopital.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class Visite {
@@ -9,10 +10,10 @@ public class Visite {
 	private Integer medecin_id;
 	private double visite_cout = 20;
 	private Bureau salle;
-	private LocalDate date;
+	private Date date;
 	
 	public Visite(Integer visite_id, Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle,
-			LocalDate date) {
+			Date date) {
 		this.visite_id = visite_id;
 		this.patient_id = patient_id;
 		this.medecin_id = medecin_id;
@@ -21,7 +22,7 @@ public class Visite {
 		this.date = date;
 	}
 
-	public Visite(Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle, LocalDate date) {
+	public Visite(Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle, Date date) {
 		super();
 		this.patient_id = patient_id;
 		this.medecin_id = medecin_id;
@@ -70,11 +71,11 @@ public class Visite {
 		this.salle = salle;
 	}
 
-	public LocalDate getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

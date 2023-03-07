@@ -13,7 +13,6 @@ import java.util.List;
 import projetHopital.model.Bureau;
 import projetHopital.model.Visite;
 
-
 public class DaoVisiteImpl implements DaoVisite {
 	DaoVisiteImpl() {
 	}
