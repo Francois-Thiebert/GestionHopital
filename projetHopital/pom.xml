@@ -25,5 +25,10 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<version>8.0.32</version>
 		</dependency>
+		<dependency>
+			<groupId>ajc.formation.soprasteria</groupId>
+			<artifactId>demoMaven</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 </project>
