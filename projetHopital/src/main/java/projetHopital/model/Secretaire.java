@@ -12,6 +12,8 @@ public class Secretaire extends Compte{
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public void ajoutPatientFile(Patient patient) {
+		fileAttente.add(patient);
+	}
 
 }

@@ -9,7 +9,7 @@ public abstract class Compte {
 	private String login;
 	private String password;
 	private TypeCompte typeCompte;
-	private List<Patient> fileAttente= new LinkedList<>(); 
+	protected List<Patient> fileAttente= new LinkedList<>(); 
 	
 	public Compte(Integer compte_id, String login, String password, TypeCompte typeCompte) {
 		this.compte_id = compte_id;
