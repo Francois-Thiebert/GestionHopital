@@ -1,0 +1,24 @@
+CREATE TABLE `compte` (
+  `compte_id` int NOT NULL AUTO_INCREMENT,
+  `compte_login` varchar(45) DEFAULT NULL,
+  `compte_password` varchar(45) DEFAULT NULL,
+  `compte_type` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`compte_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `patient` (
+  `patient_id` int NOT NULL AUTO_INCREMENT,
+  `patient_nom` varchar(200) DEFAULT NULL,
+  `patient_prenom` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`patient_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `visite` (
+  `visite_id` int NOT NULL AUTO_INCREMENT,
+  `visite_patient_id` int DEFAULT NULL,
+  `visite_medecin_id` int DEFAULT NULL,
+  `visite_cout` int DEFAULT NULL,
+  `visite_salle` varchar(45) DEFAULT NULL,
+  `visite_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`visite_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
