@@ -30,7 +30,7 @@ public class Context {
 	
 	private Context() {
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quest", "root", "root123@");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hopital", "root", "root123@");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

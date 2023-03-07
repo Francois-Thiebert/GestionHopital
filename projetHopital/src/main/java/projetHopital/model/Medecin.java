@@ -9,6 +9,10 @@ public class Medecin extends Compte{
 		this.bureau=bureau;
 	}
 	
+	public Medecin (Integer compte_id, String login, String password) {
+		super(compte_id, login, password);
+	}
+	
 	public Medecin(String login, String password, Bureau bureau) {
 		super(login, password, TypeCompte.M);
 		this.bureau=bureau;

@@ -14,6 +14,12 @@ public abstract class Compte {
 		this.password = password;
 		this.typeCompte = typeCompte;
 	}
+	
+	public Compte(Integer compte_id, String login, String password) {
+		this.compte_id = compte_id;
+		this.login = login;
+		this.password = password;
+	}
 
 	public Compte(String login, String password, TypeCompte typeCompte) {
 		this.login = login;
