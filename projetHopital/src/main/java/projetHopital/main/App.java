@@ -11,6 +11,8 @@ import projetHopital.Dao.DaoVisite;
 import projetHopital.model.Bureau;
 import projetHopital.model.Compte;
 import projetHopital.model.Medecin;
+import projetHopital.model.Patient;
+import projetHopital.model.Secretaire;
 import projetHopital.model.TypeCompte;
 
 public class App {
@@ -54,7 +56,7 @@ public class App {
 				Medecin medecin = daoCompte.findMedecinByKey(id);
 				medecin.setBureau(bureau);
 
-				choix=0;
+				choix = 0;
 				while (choix != 4 && choix != 5) {
 					System.out.println(
 							"Que voulez vous faire ? \n (1) Rendre salle disponible \n (2) Visualiser la liste d'attente \n (3) Sauvegarder les visites "
@@ -66,12 +68,51 @@ public class App {
 						medecin.visualiserFile();
 					} else if (choix == 3) {
 						medecin.sauvegardeVisite();
-					} else {
-						choix=5;
-					};
+					} 					
 				}
 				System.out.println("Déconnecté !");
 			}
+
+			else if (daoCompte.findByKey(id).getTypeCompte().equals("S")) {
+				Secretaire secretaire = daoCompte.findSecretaireByKey(id);
+
+				choix = 0;
+				while (choix != 4 && choix != 5) {
+					sc = new Scanner(System.in);
+					System.out.println(
+							"Que voulez vous faire ? \n (1) Ajouter un patient à la file d'attende \n (2) Visualiser la liste d'attente \n (3) Partir en pause "
+									+ "\n (4) Se déconnecter \n (5) Quitter l'application");
+					choix = sc.nextInt();
+					if (choix == 1) {
+						Patient patient;
+						System.out.println("le patient est-il déjà dans la base de donnée : (oui ou non)");
+						String present = sc.nextLine();
+						if (present.equals("oui")) {
+							System.out.println("L'id du patient :");
+							Integer idPatient = sc.nextInt();
+							patient = daoPatient.findByKey(idPatient);
+						} else {
+							System.out.println("le prenom du patient :");
+							String prenomPatient = sc.nextLine();
+							System.out.println("le nom du patient :");
+							String nomPatient = sc.nextLine();
+							patient = new Patient(prenomPatient, nomPatient);
+							daoPatient.insert(patient);
+						}
+						secretaire.ajoutPatientFile(patient);
+						sc = new Scanner(System.in);
+					} else if (choix == 2) {
+						secretaire.afficheFileAttente();
+					} else if (choix == 3) {
+						secretaire.partEnPause();
+						System.out.println("Taper entrer lorsque vous êtes de retour");
+						sc.nextLine();
+						secretaire.revientDePause();
+					} 					
+				}
+				System.out.println("Déconnecté !");
+			}
+
 		}
 	}
 
