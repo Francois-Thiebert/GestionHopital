@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import cdTheque.CD;
 import projetHopital.Dao.Closer;
 import projetHopital.Dao.Context;
 import projetHopital.Dao.DaoVisiteImpl;
@@ -21,16 +20,17 @@ public class Medecin extends Compte{
 	private List<Visite> visites;
 
 	public Medecin(Integer compte_id, String login, String password, Bureau bureau) {
-		super(compte_id, login, password, TypeCompte.M);
+		super(compte_id, login, password, "M");
 		this.bureau=bureau;
 	}
 	
 	public Medecin (Integer compte_id, String login, String password) {
-		super(compte_id, login, password);
+		super(compte_id, login, password, "M");
 	}
 	
+	
 	public Medecin(String login, String password, Bureau bureau) {
-		super(login, password, TypeCompte.M);
+		super(login, password, "M");
 		this.bureau=bureau;
 	}
 

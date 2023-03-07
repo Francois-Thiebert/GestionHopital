@@ -21,7 +21,10 @@ public class AppTest {
 		
 		Secretaire secretaireTest = new Secretaire("LoginS", "PasswordS");
 		Medecin medecinTest = new Medecin("LoginM", "PasswordM",Bureau.S1);
+		Medecin medecinTest2 = new Medecin("LoginM2", "Password2",Bureau.S2);
 		Patient patientTest = new Patient("NomTest", "PrenomTest");
+		
+		System.out.println(daoCompte.findAllMedecin());
 		
 		Visite visiteTest = new Visite(3, 2, 20, medecinTest.getBureau(), LocalDate.now());
 		
@@ -32,10 +35,10 @@ public class AppTest {
 //		
 //		System.out.println(daoPatient.findByKey(3).getPatient_id());
 		
-		
+//		daoCompte.insert(medecinTest2);
 //		daoCompte.insert(secretaireTest);
 //		daoCompte.insert(medecinTest);
-		daoVisite.insert(visiteTest);
+//		daoVisite.insert(visiteTest);
 //		daoPatient.insert(patientTest);
 		
 //		daoPatient.insert(patientTest);

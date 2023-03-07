@@ -8,10 +8,10 @@ public abstract class Compte {
 	private Integer compte_id;
 	private String login;
 	private String password;
-	private TypeCompte typeCompte;
+	private String typeCompte;
 	protected List<Patient> fileAttente= new LinkedList<>(); 
 	
-	public Compte(Integer compte_id, String login, String password, TypeCompte typeCompte) {
+	public Compte(Integer compte_id, String login, String password, String typeCompte) {
 		this.compte_id = compte_id;
 		this.login = login;
 		this.password = password;
@@ -24,7 +24,7 @@ public abstract class Compte {
 		this.password = password;
 	}
 
-	public Compte(String login, String password, TypeCompte typeCompte) {
+	public Compte(String login, String password, String typeCompte) {
 		this.login = login;
 		this.password = password;
 		this.typeCompte = typeCompte;
@@ -54,11 +54,11 @@ public abstract class Compte {
 		this.password = password;
 	}
 
-	public TypeCompte getTypeCompte() {
+	public String getTypeCompte() {
 		return typeCompte;
 	}
 
-	public void setTypeCompte(TypeCompte typeCompte) {
+	public void setTypeCompte(String typeCompte) {
 		this.typeCompte = typeCompte;
 	}
 

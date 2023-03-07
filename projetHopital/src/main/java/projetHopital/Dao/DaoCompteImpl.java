@@ -49,7 +49,7 @@ public class DaoCompteImpl implements DaoCompte {
 		PreparedStatement ps = null;
 		try {
 			ps = Context.getContext().getConnection()
-					.prepareStatement("UPDATE compte SET compte_login=?, compte_password=?, compte_type=? WHERE id=?");
+					.prepareStatement("UPDATE compte SET compte_login=?, compte_password=?, compte_type=? WHERE compte_id=?");
 			ps.setString(1, compte.getLogin());
 			ps.setString(2, compte.getPassword());
 			if (compte instanceof Secretaire) {
@@ -76,7 +76,7 @@ public class DaoCompteImpl implements DaoCompte {
 	public void deleteByKey(Integer key) {
 		PreparedStatement ps = null;
 		try {
-			ps = Context.getContext().getConnection().prepareStatement("delete from compte where id=?");
+			ps = Context.getContext().getConnection().prepareStatement("delete from compte where compte_id=?");
 			ps.setInt(1, key);
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -90,7 +90,7 @@ public class DaoCompteImpl implements DaoCompte {
 	private Secretaire getSecretaire(ResultSet rs) throws SQLException {
 		// @formatter:off
 		return new Secretaire(
-						rs.getInt("id"), 
+						rs.getInt("compte_id"), 
 						rs.getString("compte_login"), 
 						rs.getString("compte_password"));
 		// @formatter:on
@@ -100,7 +100,7 @@ public class DaoCompteImpl implements DaoCompte {
 	private Medecin getMedecin(ResultSet rs) throws SQLException {
 		// @formatter:off
 		return new Medecin(
-						rs.getInt("id"), 
+						rs.getInt("compte_id"), 
 						rs.getString("compte_login"), 
 						rs.getString("compte_password"));
 		// @formatter:on
@@ -112,7 +112,7 @@ public class DaoCompteImpl implements DaoCompte {
 		Compte compte = null;
 		PreparedStatement ps = null;
 		try {
-			ps = Context.getContext().getConnection().prepareStatement("select * from compte where id=?");
+			ps = Context.getContext().getConnection().prepareStatement("select * from compte where compte_id=?");
 			ps.setInt(1, key);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
@@ -202,7 +202,7 @@ public class DaoCompteImpl implements DaoCompte {
 		PreparedStatement ps = null;
 		try {
 			ps = Context.getContext().getConnection()
-					.prepareStatement("select * from compte where id=? and compte_type='S'");
+					.prepareStatement("select * from compte where compte_id=? and compte_type='S'");
 			ps.setInt(1, key);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
@@ -223,7 +223,7 @@ public class DaoCompteImpl implements DaoCompte {
 		PreparedStatement ps = null;
 		try {
 			ps = Context.getContext().getConnection()
-					.prepareStatement("select * from compte where id=? and compte_type='M'");
+					.prepareStatement("select * from compte where compte_id=? and compte_type='M'");
 			ps.setInt(1, key);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
