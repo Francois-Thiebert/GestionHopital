@@ -10,10 +10,10 @@ public class Visite {
 	private Integer medecin_id;
 	private double visite_cout = 20;
 	private Bureau salle;
-	private Date date;
+	private LocalDate date;
 	
 	public Visite(Integer visite_id, Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle,
-			Date date) {
+			LocalDate date) {
 		this.visite_id = visite_id;
 		this.patient_id = patient_id;
 		this.medecin_id = medecin_id;
@@ -22,7 +22,7 @@ public class Visite {
 		this.date = date;
 	}
 
-	public Visite(Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle, Date date) {
+	public Visite(Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle, LocalDate date) {
 		super();
 		this.patient_id = patient_id;
 		this.medecin_id = medecin_id;
@@ -71,11 +71,11 @@ public class Visite {
 		this.salle = salle;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

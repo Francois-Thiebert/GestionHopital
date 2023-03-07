@@ -22,7 +22,7 @@ public class DaoCompteImpl implements DaoCompte {
 		try {
 			ps = Context.getContext().getConnection()
 					.prepareStatement("INSERT INTO compte (compte_login, compte_password, compte_type) values(?,?,?)"
-							+ Statement.RETURN_GENERATED_KEYS);
+							,Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, compte.getLogin());
 			ps.setString(2, compte.getPassword());
 			if (compte instanceof Secretaire) {

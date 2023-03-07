@@ -29,7 +29,7 @@ public class DaoVisiteImpl implements DaoVisite {
 			ps.setInt(1, obj.getPatient_id());
 			ps.setInt(2, obj.getMedecin_id());
 			ps.setString(3, obj.getSalle().toString()); 
-			ps.setDate(4, (Date) (obj.getDate()));
+			ps.setDate(4, Date.valueOf(obj.getDate()));
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs.next()) {
@@ -53,7 +53,7 @@ public class DaoVisiteImpl implements DaoVisite {
 			ps.setInt(1, obj.getPatient_id());
 			ps.setInt(2, obj.getMedecin_id());
 			ps.setString(3, obj.getSalle().toString()); 
-			ps.setDate(4, (Date) obj.getDate());			
+			ps.setDate(4, Date.valueOf(obj.getDate()));			
 			ps.setInt(5, obj.getVisite_id());
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -92,7 +92,7 @@ public class DaoVisiteImpl implements DaoVisite {
 								rs.getInt("patient_id"),
 								rs.getInt("medecin_id"),
 								Bureau.valueOf(rs.getString("visite_salle")),
-								rs.getDate("visite_date")
+								rs.getDate("visite_date").toLocalDate()
 								);	
 		return Visite;
 	}

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 public class Context {
 	
 	static {
@@ -13,6 +14,24 @@ public class Context {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+	
+private static DaoCompte daoCompte = new DaoCompteImpl();
+	
+	public static DaoCompte getDaoCompte() {
+		return daoCompte;
+	}
+	
+private static DaoVisite daoVisite = new DaoVisiteImpl();
+	
+	public static DaoVisite getDaoVisite() {
+		return daoVisite;
+	}
+	
+private static DaoPatient daoPatient = new DaoPatientImpl();
+	
+public static DaoPatient getDaoPatient() {
+		return daoPatient;
 	}
 	
 	// singleton des DAO à placer ici

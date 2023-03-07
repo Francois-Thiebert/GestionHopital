@@ -20,7 +20,7 @@ public class DaoPatientImpl implements DaoPatient{
 		PreparedStatement ps = null;
 		try {
 			ps = Context.getContext().getConnection().prepareStatement(
-					"insert into patient(patient_nom,patient_preneom) values(?,?) ",
+					"insert into patient(patient_nom,patient_prenom) values(?,?) ",
 					Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, obj.getNom());
 			ps.setString(2, obj.getPrenom());
