@@ -4,10 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class Secretaire extends Compte {
+public class Secretaire extends Compte implements Serializable {
 
 	public Secretaire(Integer compte_id, String login, String password) {
 		super(compte_id, login, password, "S");
@@ -32,7 +33,7 @@ public class Secretaire extends Compte {
 	public void partEnPause() {
 		try {
 			FileOutputStream fos = new FileOutputStream(
-					"C:\\Users\\coco2\\Desktop\\Formation Jeanne\\git_test\\TpGit\\projetHopital\\src\\main\\java\\projetHopital\\model\\fileAttente");
+					"C:\\Users\\pierr\\OneDrive\\Documents\\Depot_Git\\ProjetJavaHopital\\GestionHopital\\fileAttente");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(fileAttente);
 			oos.close();
@@ -45,7 +46,7 @@ public class Secretaire extends Compte {
 	public void revientDePause() {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"C:\\\\Users\\\\coco2\\\\Desktop\\\\Formation Jeanne\\\\git_test\\\\TpGit\\\\projetHopital\\\\src\\\\main\\\\java\\\\projetHopital\\\\model\\\\fileAttente"));
+					"C:\\Users\\pierr\\OneDrive\\Documents\\Depot_Git\\ProjetJavaHopital\\GestionHopital\\fileAttente"));
 			Object obj = ois.readObject();
 			fileAttente = (List<Patient>) obj;
 			fileAttente.forEach(personne -> System.out.println(personne.getPrenom() + ", " + personne.getNom()));

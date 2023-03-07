@@ -14,6 +14,7 @@ import projetHopital.model.Medecin;
 import projetHopital.model.Patient;
 import projetHopital.model.Secretaire;
 import projetHopital.model.TypeCompte;
+import projetHopital.model.Visite;
 
 public class App {
 	public static void main(String[] args) {
@@ -68,7 +69,7 @@ public class App {
 						medecin.visualiserFile();
 					} else if (choix == 3) {
 						medecin.sauvegardeVisite();
-					} 					
+					}
 				}
 				System.out.println("Déconnecté !");
 			}
@@ -81,11 +82,12 @@ public class App {
 					sc = new Scanner(System.in);
 					System.out.println(
 							"Que voulez vous faire ? \n (1) Ajouter un patient à la file d'attende \n (2) Visualiser la liste d'attente \n (3) Partir en pause "
-									+ "\n (4) Se déconnecter \n (5) Quitter l'application");
+									+ "\n (4) Se déconnecter \n (5) Quitter l'application \n (6) Visualiser visites d'un patient");
 					choix = sc.nextInt();
 					if (choix == 1) {
 						Patient patient;
 						System.out.println("le patient est-il déjà dans la base de donnée : (oui ou non)");
+						sc = new Scanner(System.in);
 						String present = sc.nextLine();
 						if (present.equals("oui")) {
 							System.out.println("L'id du patient :");
@@ -108,14 +110,19 @@ public class App {
 						System.out.println("Taper entrer lorsque vous êtes de retour");
 						sc.nextLine();
 						secretaire.revientDePause();
-					} 					
+					} else if (choix == 6) {
+						System.out.println("L'id du patient :");
+						Integer idPatient = sc.nextInt();
+						List<Visite> visites = daoVisite.findPatientByKey(idPatient);
+						visites.forEach(visite -> {
+							System.out.println(visite.getMedecin_id() + " " + visite.getDate() + " " + visite.getVisite_cout());
+						});					
+					}
 				}
 				System.out.println("Déconnecté !");
 			}
-
 		}
 	}
-
 	static boolean verifId(List<Compte> compte, Integer id) {
 		for (int i = 0; i < compte.size(); i++) {
 			if (compte.get(i).getCompte_id().equals(id)) {
