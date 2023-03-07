@@ -1,4 +1,0 @@
-hello world
-<<<<<<< HEAD
-modif jeanne
-coucou jeanne
