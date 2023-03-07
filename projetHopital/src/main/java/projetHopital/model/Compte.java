@@ -1,5 +1,7 @@
 package projetHopital.model;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Compte {
@@ -7,6 +9,7 @@ public abstract class Compte {
 	private String login;
 	private String password;
 	private TypeCompte typeCompte;
+	private List<Patient> fileAttente= new LinkedList<>(); 
 	
 	public Compte(Integer compte_id, String login, String password, TypeCompte typeCompte) {
 		this.compte_id = compte_id;

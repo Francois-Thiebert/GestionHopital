@@ -11,5 +11,7 @@ public class Secretaire extends Compte{
 		super(login, password, TypeCompte.S);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 }

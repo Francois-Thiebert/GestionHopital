@@ -8,25 +8,25 @@ public class Visite {
 	private Integer visite_id;
 	private Integer patient_id;
 	private Integer medecin_id;
-	private double visite_cout = 20;
+	private double visite_cout;
 	private Bureau salle;
 	private LocalDate date;
 	
-	public Visite(Integer visite_id, Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle,
+	public Visite(Integer visite_id, Integer patient_id, Integer medecin_id, Bureau salle,
 			LocalDate date) {
 		this.visite_id = visite_id;
 		this.patient_id = patient_id;
 		this.medecin_id = medecin_id;
-		this.visite_cout = visite_cout;
+		this.visite_cout = 20;
 		this.salle = salle;
 		this.date = date;
 	}
 
-	public Visite(Integer patient_id, Integer medecin_id, double visite_cout, Bureau salle, LocalDate date) {
+	public Visite(Integer patient_id, Integer medecin_id, Bureau salle, LocalDate date) {
 		super();
 		this.patient_id = patient_id;
 		this.medecin_id = medecin_id;
-		this.visite_cout = visite_cout;
+		this.visite_cout = 20;
 		this.salle = salle;
 		this.date = date;
 	}
