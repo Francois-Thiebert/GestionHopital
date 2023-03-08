@@ -108,6 +108,7 @@ public class App {
 					} else if (choix == 3) {
 						secretaire.partEnPause();
 						System.out.println("Taper entrer lorsque vous êtes de retour");
+						sc = new Scanner(System.in);
 						sc.nextLine();
 						secretaire.revientDePause();
 					} else if (choix == 6) {
